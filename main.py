@@ -1,10 +1,17 @@
 from stats import num_of_words, num_of_characters, report
+import sys
 
 def get_book_text(path):
     with open(path, encoding="utf-8") as f:
         return f.read()
 
-text = get_book_text("books/frankenstein.txt")
+if len(sys.argv) < 2:
+    print("Usage: python main.py <path>")
+    sys.exit(1)
+book_path = sys.argv[1]
+
+text = get_book_text(book_path)
+
 
 
 def main():
